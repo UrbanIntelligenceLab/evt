@@ -1,0 +1,81 @@
+/** choropleth visualization */
+
+/* YELLOW to BLUE Version by Renate 2015-04-26 */
+
+/** choropleth visualization */
+
+#nyc_energy_by_bbl{
+  polygon-fill: #FFFFFF;
+  polygon-opacity: .25;
+  line-color: #FFF;
+  line-width: 0;
+  line-opacity: 0;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 989] {
+   polygon-fill: #0c2c84;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 546] {
+   polygon-fill: #225ea8;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 409] {
+   polygon-fill: #1d91c0;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 314] {
+   polygon-fill: #41b6c4;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 235] {
+   polygon-fill: #7fcdbb;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 157] {
+   polygon-fill: #c7e9b4;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 78] {
+   polygon-fill: #ffffcc;
+  polygon-opacity: 1;
+}
+
+
+
+/* BLUE Version by Dave until 2015-04-26 */
+
+#nyc_energy_by_bbl{
+  polygon-fill: #FFFFFF;
+  polygon-opacity: .25;
+  line-color: #FFF;
+  line-width: 0;
+  line-opacity: 0;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 989] {
+   polygon-fill: #43618F;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 546] {
+   polygon-fill: #4E71A6;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 409] {
+   polygon-fill: #6182B5;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 314] {
+   polygon-fill: #849EC5;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 235] {
+   polygon-fill: #9BB0D0;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 157] {
+   polygon-fill: #B2C2DB;
+  polygon-opacity: 1;
+}
+#nyc_energy_by_bbl [ weather_normalized_source_eui_kbtu_ft2 <= 78] {
+   polygon-fill: #ECF0F6;
+  polygon-opacity: 1;
+}

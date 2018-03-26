@@ -1,0 +1,519 @@
+
+/******************************************************
+  MAP AND GENERAL LAYOUT 
+******************************************************/
+
+/*html {
+   -ms-overflow-style: scrollbar;
+}*/
+
+.pac-container{
+  z-index: 999999 !important;
+}
+
+.terms li{
+  margin-top: 10px;
+}
+
+.data-def li{
+  margin-top: 4px;
+}
+
+h4 {
+  padding-top:5px;
+  color:#666;
+}
+
+.btn-primary.active {
+  background-color:#feb24c !important;
+  border-color: #ff9200 !important;
+}
+
+.metanavi {
+  position: relative;
+  float:right;
+  padding-top:5px;
+  padding-right: 20px;
+  z-index: 9999999;
+}
+
+.metanavi ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.metanavi li {
+  padding-left: 30px;
+}
+
+.metanavi li, a, a:hover {
+  display: inline;
+
+  /*padding-left:10px;
+  font-size:12px;
+  text-decoration: none;
+  color: #666; */
+}
+
+#contentrow  {
+  min-height: 840px;
+  /*height: 100%;*/
+}
+
+#mapcontainer {
+  /*float: right;*/
+  /*width:60%;*/
+  /*height: 800px;*/
+  height: 100%;
+  padding-right:0px;
+}
+
+/*.leaflet-container {
+  margin-right: 0px;
+  padding-right: -15px;
+  width: 100%;
+  background-clip: content-box;
+  box-sizing: content-box;
+}
+*/
+#map {
+    /*min-height: 300px;*/
+    height: 100%;
+    width: 100%;
+    /*position: relative;*/
+    /*left:0px;*/
+    /*top:0px;*/
+    /*min-height: 100%;*/
+    /*z-index: 1;*/
+    /*margin-right: 0px;*/
+    /*padding-right: -15px;*/
+    /*width: 100%;*/
+    /*background-clip: content-box;*/
+    /*box-sizing: content-box;*/
+  }
+
+#filtercontainer {
+    /*border:1px solid red;
+    /*float: left;*/
+    min-height:840px;
+    min-width:500px; 
+    /*position:relative;*/
+}
+
+.introcontainer {
+    /*border:1px solid red;
+    /*float: left;*/
+    min-height:840px;
+    min-width:500px; 
+    z-index: 100000;
+    position: relative;
+    padding: 0px 20px 20px 30px;
+}
+
+#intro {
+    border-top:1px solid #CCC;
+    position: relative;
+    padding: 20px 20px 20px 20px;
+    z-index: 100000;
+    top: 380px;
+    left: 0px;
+}
+
+#filter {
+  border-top:1px solid #CCC;
+  /*padding: 20px 20px 20px 20px;*/
+  /*width: 40%;*/
+}
+
+#typelist {
+    position:absolute;
+    left:20px;
+    width:320px;
+    /*border:1px solid blue;*/
+}
+
+#whiskers {
+    position:absolute;
+    left:330px;
+    margin-left:15px;
+    /*border:1px solid green;*/
+}
+
+#whiskers-legend {
+    visibility:hidden;
+    position:absolute;
+    left:480px;
+    top:340px;
+    width:50px;
+    margin-left:15px;
+    font-size:10px;
+    color: #ff9200; /*#feb24c;*/
+    line-height: 0.9;
+    /*border:1px solid green;*/
+}
+
+#scatterplotcontainer {
+    border-top:1px solid #CCC;
+    visibility:hidden;
+    position: relative;
+    padding: 0px 0px 0px 10px;
+    z-index: 10000000;
+    top: 380px;
+    left: 0px;
+}
+
+#scatterplot {
+    position:absolute;
+    top:0px;
+    /*border:1px solid red;*/
+}
+
+#search {
+    padding: 10px 20px 10px 20px;
+}
+
+#yearSizeFilter {
+    padding: 10px 20px 0px 20px;
+}
+
+#topic {
+    padding: 20px 20px 0px 20px;
+}
+
+#filter {
+    background-color:white;
+    padding: 10px 20px 0px 20px;
+    z-index: 800;
+}
+
+#filter ul {
+  margin-top:30px;
+  /*margin:0px;*/
+}
+
+#filter .list-group-item {
+  padding:4.5px 1px;
+  border:0px;
+  cursor:pointer;
+}
+
+#filter .selected {
+  background-color: #feb24c;
+}
+
+#filter .list-group-item .badge {
+  font-weight: normal;
+  background-color: #428bca;
+}
+
+ .headline {
+  font-size:12px;
+  padding:3px;
+  color:#428bca;
+}
+
+/*#filter .headline {
+  font-size:12px;
+  padding:3px;
+  color:#428bca;
+}
+*/
+#addressText {
+  width:305px;
+}
+
+.perbuildinginfo {
+    visibility:hidden;
+    position: absolute;
+    right:0px;
+    top:32px;
+    width:300px;
+    background-color:white;
+    padding: 0px 20px 10px;
+    z-index:9999999;
+}
+
+.expandedbuildinginfo {
+  padding: 10px 20px;
+  min-height:840px;
+  border-left: 1px solid #ccc;
+}
+
+.close {
+    float:right;
+    display:inline-block;
+    background:#ccc;
+    cursor:pointer;
+}
+
+.close:hover {
+    /*box-shadow: 2px 2px 5px rgba(0,0,0,.2);*/
+    background:#428bca;
+}
+
+.perbuildinginfo .close {
+  padding:1px 6px;
+}
+
+.expandedbuildinginfo .close {
+  padding:6px 10px;
+}
+
+#selection {
+    position: relative;
+    margin-top:10px;
+    width: 382px;
+    min-height: 350px;
+    background-color:white;
+    border-radius: 4px;
+    border: 1px solid #999;
+    padding: 20px;
+    opacity: 0.8;
+    z-index: 3;
+}
+
+#histogram {
+  float: right;
+  padding: 0px 10px;
+}
+
+.bignumber {
+  font-size:50px;
+  font-weight: bold;
+  /*float:left;*/
+  line-height:0.8;
+  padding-right:10px;
+}
+
+
+.mediumnumber {
+  font-size:20px;
+  /*font-weight: bold;*/
+  /*float:left;*/
+  /*line-height:0.8;*/
+}
+
+.smallnumber {
+  font-size:14px;
+}
+
+.tinynumber {
+  font-size:10px;
+}
+
+.grey {
+  color:#999;
+}
+
+.subline {
+  padding-top:-10px;
+  line-height:1;
+  /*font-size:12px;*/
+}
+
+.expandedsubline {
+  /*padding-top:-10px;*/
+  color:#999;
+  line-height:1;
+}
+
+.expandedHistogram {
+  padding-bottom: 10;
+}
+
+
+#thumbnailcontainer {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 4;
+}
+
+.thumbnail {
+  position: relative;
+  float:left;
+  height: 110px;
+  width: 160px;
+  background-color:white;
+  border-radius: 4px;
+  border: 1px solid #999;
+  padding: 5px;
+  opacity: 0.8;
+  margin-left:20px;
+}
+
+.thumbnail p {
+  font-size:12px;
+  text-decoration: none;
+  font-color: #999; 
+}
+
+.thumbimg {
+  width: 150px;
+  border: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-color: #000;
+}
+
+.explanation {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom:0px;
+}
+
+
+
+/******************************************************
+  AXIS
+******************************************************/
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #666;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 9px;
+  fill: black;
+}
+
+
+
+/******************************************************
+  HISTOGRAM
+******************************************************/
+
+.sqltest {
+  font: 8px sans-serif;
+}
+
+.bar rect {
+  fill: #2376BB;
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #fff;
+}
+
+.vert_line line {
+/*	stroke: #f23f3f; */    /*Bright red*/
+  /*stroke: #c70219;*/
+  stroke: #ff9200; /* #feb24c;  */    /* orange */
+	stroke-width: 3;
+  /*shape-rendering: crispEdges;*/
+}
+
+.vert_line text {
+  /*fill: #f23f3f; */   /*Bright red*/
+  font-weight: 600;
+  fill: #ff9200; /*#feb24c;*/
+} 
+
+/******************************************************
+  TREEMAP
+******************************************************/
+
+.node {
+  border: solid 1px white;
+  font: 10px sans-serif;
+  line-height: 12px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 2px;
+}
+
+/******************************************************
+  TOOPTIPS
+******************************************************/
+
+#tooltip {
+  position:absolute;
+  width:150px;
+  height:auto;
+  padding:5px;
+  background-color:white;
+  box-shadow: 4px 4px 10px #999;
+  pointer-events:none;
+  z-index:99999999;
+}
+
+
+/******************************************************
+  SCATTERPLOT
+******************************************************/
+
+#scatterplot svg text {
+  font-family: sans-serif;
+  text-anchor: middle;
+}
+
+
+/******************************************************
+  WHISKERPLOT
+******************************************************/
+.whisker {
+  stroke: #428bca;
+}
+
+.whisker line.1std {
+  stroke-width: 4;
+}
+
+.whisker line.2std {
+  stroke-width: 2;
+}
+
+
+
+
+/******************************************************
+    NYC corporate design
+******************************************************/
+
+
+#nycbanner {
+    position: relative;
+    z-index: 4000;
+    top: 0px;
+    left: 0px;
+    right: 15px;
+    width: 100%;
+    background-color: #000;
+    height: 34px;
+    display:block;
+    margin-right: 0px;
+}
+
+#nycbanner div {
+    color: #FFF;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    left: 76px;
+    position: absolute;
+    text-align: left;
+    top: 2px;
+    width: auto;
+}
+
+#nycbanner #nycLogo {
+    height: 24px;
+    margin: 4px 3px 0px;
+    cursor: pointer;
+    float: left;
+}
+
+.radioButton {
+  cursor: pointer;
+}
+
+
+

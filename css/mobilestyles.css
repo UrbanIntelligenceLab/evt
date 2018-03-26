@@ -1,0 +1,54 @@
+
+
+
+body.mobile{
+  /*min-height: 2000px;*/
+  padding-top: 0px;
+}
+
+.mobile #mobileSearchBar {
+  position: relative;
+  z-index: 999999;
+}
+
+.mobile .navbar #nycLogo {
+    height: 24px;
+    margin: -3px 3px 0px;
+    cursor: pointer;
+    float: left;
+}
+
+.mobile .navbar-static-top {
+	background-color: #000;
+	z-index:9999999;
+}
+
+.navbar-header a.navbar-brand{
+	color: #fff;
+}
+.navbar-header a.navbar-brand:hover{
+	color: #fff
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: #428bca;
+    cursor:pointer;
+}
+
+.mobile #contentrow  {
+  min-height: 0px;
+  /*height: 100%;*/
+}
+
+.mobile .introcontainer  {
+  min-height: 0px;
+  min-width: 300px;
+  z-index: 0;
+  /*height: 100%;*/
+}
+
+.mobile .expandedbuildinginfo {
+  padding: 10px 20px;
+  min-height:0px;
+  border-left: 0px solid #ccc;
+}

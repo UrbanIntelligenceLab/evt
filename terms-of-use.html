@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<!-- Links to styles and improted scripts -->
+  <head>
+    <title>Benchmarking Visualization</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- css links -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cartodb/v3/3.11/cartodb.css" rel="stylesheet" >
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/mobilestyles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- javascript files -->
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script src="js/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/libs/cartodb/v3/3.11/cartodb.js"></script>
+
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/mobilescript.js"></script>
+    <script type="text/javascript" src="js/histogram.js"></script>
+    <script type="text/javascript" src="js/buildingtypelist.js"></script>
+
+    
+  </head>
+
+<!-- BODY -->
+  <body style="height: 100%" class="mobile">
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./">
+            <img id="nycLogo" title="NYC Energy and Water Benchmarking" alt="NYC Building Energy" src="img/nyc.png"></img>
+            <b>Energy and Water Benchmarking</b>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./">Destop</a></li>
+            <li><a href="./mobile.html">Mobile</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div id="contentcontainer" class="container" style="height: 100%">
+
+       <div class="row" id="search">
+        <div class="col-md-12">
+          <a name="about"></a><h2 class="page-header" >Terms of Use</h2>
+
+          <!-- <form id="mobileSearchBar" action="" method="post" class="form-inline">
+              <input id="addressText" type="text" name="addressText" class="form-control" autofocus="autofocus" placeholder="Find your address">
+              <button type="submit" class="btn btn-default">Search</button>
+          </form> -->
+        </div>
+      </div>
+
+      <div id="contentrow" class="row" style="height: 100%">
+
+        <!-- SEARCH AND BUILDING TYPE LIST -->
+         <div  id="aboutcontainer" class="introcontainer col-xs-12" style="z-index:10;">
+        
+          <p>See here for the City of New York's <a href="http://www1.nyc.gov/home/terms-of-use.page">Terms of Use</a>  </p>
+
+            <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><span id="docs-internal-guid-48845786-7957-a422-1eb8-a396be56e7d8"><span style="color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">This CUSP Building Energy Visualization Tool (the &ldquo;</span><span style="color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Service</span><span style="color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">&rdquo;) is provided by the Center for Urban Science and Progress (&ldquo;CUSP&rdquo;), a Center at New York University (&ldquo;NYU&rdquo;). &nbsp;These Terms of Use set out the conditions of your use of the Service and form a binding agreement between you and NYU. &nbsp;Please read these Terms of Use carefully. &nbsp;If you do not assent to them, you are not authorized to use the Service. &nbsp;By using the Service after assenting to these terms, you confirm that you agree to them.</span></span></span></span></p>
+            <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">&nbsp;</p>
+            
+            <ol class="terms">
+            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">License</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">. &nbsp;Subject to these Terms of Use, during the term of this agreement, NYU grants you a non-exclusive, worldwide, personal, non-transferable, non-assignable, non-sublicensable, royalty-free license to use the Service as provided by NYU, in the manner permitted by the Terms.</span></li>
+            
+            <li style="line-height: 1.2; margin-bottom: 0pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Rights and Responsibilities Related to Content and Material on the Service</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">. &nbsp;The Service and its contents (&ldquo;</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Service Content</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">&rdquo;) are protected by United States and international copyright laws. You may access the Service and Service Content for your informational, research, and educational use solely as intended through the provided functionality of the Service and as permitted under this Agreement. &nbsp;You may not download any Service Content. &nbsp;You may not copy, distribute, transmit, publicly display, publicly perform, modify, sell or transfer, create derivative works from, or in any other way exploit, any of the Service Content (including any programs, code, or software contained therein) in any manner, whether in whole or in part, for any other reason, except as explicitly permitted by this Agreement or by law. &nbsp;The Service may contain data or other information obtained from third parties. &nbsp;The inclusion of this third-party data or information in the Service does not grant you the right to use this third-party data or information in any other manner.</span>
+            </li>
+            
+            <li style="line-height: 1.2; margin-bottom: 0pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Guidelines for Participation</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">. &nbsp;We grant you access to the Service on the condition that you not undertake any of the following actions:</span>
+              <ol type="a" class="terms">
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Restrict or inhibit any other person from using the Service; </span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Transmit any software or other materials that contain any virus, worm, or other harmful or disruptive component or otherwise interfere with or disrupt the operation of the Service or servers or networks hosting or connected to the Service;&nbsp;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Use the Service for any unlawful purpose or otherwise violate any applicable laws, rules or regulations in connection with your use of the Service;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Modify, adapt, sublicense, translate, sell, reverse engineer, decompile, disassemble, or deface any portion of the Service;&nbsp;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Remove any copyright, trademark or other proprietary notices in the Service;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Use any crawler, bot, site search/retrieval application, or other manual or automatic device or process to retrieve, index, scrape, or in any way reproduce or circumvent the structure or presentation of the Service, the Service Content, including by using the embed features of the Service;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Harvest or collect information about the Service or its users; or</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">&ldquo;Frame&quot; or &quot;mirror&quot; any part of the Service without our prior written authorization.</span></li>
+              </ol>
+            </li>
+            
+            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Trademarks</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">. &nbsp;&ldquo;Center for Urban Science and Progress&rdquo;, &ldquo;CUSP&rdquo;, &ldquo;New York University&rdquo;, &ldquo;NYU&rdquo;, &ldquo;the Service&rdquo;, and all related trademarks and trade names are the property of NYU and NYU retains all rights in them. &nbsp;You may not use our trademarks or trade names in any manner without our written authorization. &nbsp;</span></li>
+            
+            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Termination</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">. &nbsp;This Agreement will continue to apply until terminated in accordance with this Section. &nbsp;We may terminate this Agreement and your access to the Service at any time, at our sole discretion, if we believe that you have violated this Agreement or for other reasons that we determine in good faith are necessary or appropriate, including if we suspect you are using or attempting to use the Service in any way that violates this Agreement or any applicable laws or regulations. &nbsp;You acknowledge that we may disable your access to the Service or any data available through it at any time. &nbsp;All provisions of this Agreement which by their nature should survive termination shall survive termination, including, without limitation, provisions relating to warranty disclaimers, indemnity and limitations of liability.</span></li>
+            
+            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">No Warranties and Disclaimer of Liability. &nbsp;</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">USERS ARE SOLELY RESPONSIBLE FOR THEIR USE OF THE SERVICE, AND ANY BREACH OF THIS AGREEMENT BY THEM, AND ALL RESULTING LIABILITY. &nbsp;&nbsp;NYU CANNOT VERIFY OR GUARANTEE THAT THE INFORMATION PRESENTED ON THE SERVICE IS ACCURATE OR COMPLETE AND WE WILL NOT BE LIABLE FOR ANY HARM OR DAMAGES ARISING FROM ANY CONTENT POSTED ON THE SERVICE OR YOUR USE OF OR INABILITY TO USE OR ACCESS THE SERVICE. THE SERVICE IS PROVIDED ON AN &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; BASIS AND YOU AGREE THAT YOU USE THE SERVICE SOLELY AT YOUR OWN RISK. IN PARTICULAR, NYU DOES NOT REPRESENT OR WARRANT THAT THE SERVICE WILL MEET YOUR REQUIREMENTS; THE SERVICE WILL BE AVAILABLE, UNINTERRUPTED, SECURE, OR ERROR-FREE; THE SERVICE WILL BE ACCURATE OR RELIABLE; OR FLAWS IN THE OPERATION OR FUNCTIONALITY OF THE SERVICE WILL BE FIXED. ANY CONTENT OBTAINED THROUGH THE SERVICE IS AT YOUR OWN DISCRETION AND RISK AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR HARDWARE, LOSS OF DATA, OR ANY OTHER DAMAGE THAT RESULTS FROM OBTAINING OR USING CONTENT.</span>
+              <br><br>
+            <p>NYU makes no representations or warranties of any kind, express or implied, regarding the availability, operation, or administration of the Service, and to the full extent permitted by applicable law, NYU specifically disclaims all such warranties, whether express or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose (even if that purpose has been disclosed).  NYU reserves the right to modify, suspend, or discontinue the Service, with or without notice, at any time and without any liability to users.</p>
+
+            <p>NYU does not guarantee or warrant that the Service, or services or materials available through the Service, are free from viruses, worms, defects, Trojan horses, malware, or any items of a destructive nature. NYU is not liable for any damages or harm attributable to such features.</p>
+
+            <p>NYU and its trustees, officers, employees, agents, and affiliates are not liable for any claim of any nature whatsoever based on loss or injury because of errors, omissions, interruptions, or inaccuracies in the Service or any services or materials available through it, including without limitation loss or injury that results from your breach of any provision of this Agreement.</p>
+
+            <p>Under no circumstances will NYU or its trustees, officers, employees, agents, or affiliates be liable for any direct, indirect, incidental, consequential, special, punitive, or exemplary damages (including lost revenues or profits, loss of business, or loss of data) arising out of or in connection with this Agreement or your use of the Service or materials or services available through the Service, regardless of the theory of liability, whether tort (including negligence), contract, or any other legal or equitable theory.  Some states do not allow the limitation of liability for these kinds of damages, so these limitations or exclusions may not apply to you.</p>
+            </li>
+            
+            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Indemnity. </span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">You will defend and indemnify NYU and its trustees, officers, employees, and affiliates (the &quot;</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Indemnified Parties</span><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">&quot;) against all liabilities, damages, losses, costs, fees (including legal fees), and expenses relating to any allegation or third-party legal proceeding to the extent arising from your use of the Service in breach of the Terms of Use.</span></li>
+            
+            <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); font-weight: 700; background-color: transparent;">General</span>
+              <ol type="a" class="terms">
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">This is the complete agreement between you and NYU regarding your use of the Service and supersedes any prior understandings or agreements, whether written or oral, regarding its subject matter. &nbsp;</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">Any dispute arising between you and NYU regarding the Agreement or your use or access of the Service is governed by the laws of the State of New York without reference to its conflict of law principles. &nbsp;You irrevocably agree to bring any claim or dispute relating to your use of the Service and this Agreement exclusively in the state and federal courts located in the State and County of New York, to submit to the exclusive personal jurisdiction of those courts, and to waive any jurisdictional, venue, or other objections to those courts, including those based on inconvenience.</span></li>
+                <li><span style="white-space: pre-wrap; font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; color: rgb(0, 0, 0); background-color: transparent;">The Indemnified Parties are third-party beneficiaries of these Terms of Use; there are no other third-party beneficiaries. </span></li>
+                <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;">You agree that damages for improper use of the Service may be irreparable, and if you breach this agreement, NYU will be entitled to seek injunctive relief and other equitable remedies, in addition to any other remedies available to it.</span></li>
+                <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;">If a court of competent jurisdiction determines that any provision of this Agreement is unenforceable for any reason, then that provision will be deleted and the remaining provisions will be enforceable to fullest extent permitted by law. &nbsp;You may not assign or delegate your rights or privileges under this Agreement, and any attempt to do so is null and void.</span></li>
+                <li><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.2; white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent;">We reserve the right, at our sole discretion, to modify or replace any part of this Agreement or the Agreement at any time. We will notify you of any changes to this Agreement in a manner commensurate with the nature of the changes. &nbsp;Your continued use of or access to the Service after being notified of changes will constitute your agreement to the modified Agreement.</span></li>
+              </ol>
+            </li>
+          </ol>
+
+
+    </div> <!-- End ContentRow -->
+
+ 
+
+
+      <!-- START of nycgov_footer.inc-->
+    <table width="100%" border="0" cellspacing="0" cellpadding="5" style="background:#000;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:bold;font-size:12px;">
+      <tr>
+        <td class="header-footer-text" style="width:653px;padding-left:16px;color:#bbb;">Copyright <script language="javascript">document.write(new Date().getFullYear());</script> The City of New York</td>
+        <td class="header-footer-text" style="width:90px;text-align:center;border-right:1px solid #777;"><a href="http://www1.nyc.gov/home/contact-us.page" style="color:#fff;text-decoration:none;">Contact Us</a></td>
+        <td class="header-footer-text" style="width:100px;text-align:center;border-right:1px solid #777;"><a href="http://www1.nyc.gov/home/privacy-policy.page" style="color:#fff;text-decoration:none;">Privacy Policy</a></td>
+        <td class="header-footer-text" style="width:100px;text-align:center;"><a href="./terms-of-use.html" style="color:#fff;text-decoration:none;">Terms of Use</a></td>
+      </tr>
+    </table>
+
+
+
+  </div><!-- End ContentContainer -->
+
+  <!-- Execute main JS code -->
+    <script>
+      window.onload = mobileMain();
+
+    </script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

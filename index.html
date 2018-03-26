@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<!-- Links to styles and improted scripts -->
+  <head>
+    <title>Benchmarking Visualization</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    <link rel="shortcut icon" href="./favicon.ico">
+    
+    <!-- css links -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- javascript files -->
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script src="js/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/ageSizeForm.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/scatterplot.js"></script>
+    <script type="text/javascript" src="js/histogram.js"></script>
+    <script type="text/javascript" src="js/whiskerplot.js"></script>
+    <script type="text/javascript" src="js/buildingtypelist.js"></script>
+
+    
+  </head>
+
+<!-- BODY -->
+  <body style="height: 100%">
+
+<!--   <div >
+    <nav class="mobile navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img id="nycLogo" title="NYC Energy and Water Benchmarking" alt="NYC Building Energy" onclick="document.location='./';" src="img/nyc.png"></img>
+            <b>Energy and Water Benchmarking</b>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a onclick="showAbout()">About</a></li>
+            <li><a onclick="showResearch()">Research and Publications</a></li>
+            <li><a onclick="showData()">Data Sources and Definitions <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div> -->
+
+    <div id="contentcontainer" class="container-fluid" style="height: 100%">
+
+
+      <!-- navbar on top -->
+      <div class="row-fluid">
+          <div class="metanavi" style="float:right">
+                <ul >
+                  <li><a onclick="showAbout()"><span style="cursor:pointer">About</span></a></li>
+                  <!-- <li><a onclick="showResearch()"><span style="cursor:pointer">Research and Publications</span></a></li> -->
+                  <li><a onclick="showData()"><span style="cursor:pointer">Data Sources and Definitions</span></a></li>
+                </ul>
+           </div>
+
+          <!-- NYC banner on very top -->
+          <div id="nycbanner">
+            <img id="nycLogo" title="NYC Energy and Water Benchmarking" alt="NYC Building Energy" onclick="document.location='./';" src="img/nyc.png"></img>
+            <div title="NYC Energy and Water Benchmarking" onclick="document.location='./';">Energy and Water Benchmarking</div>
+              
+            </div>
+      </div>
+
+
+      <div id="contentrow" class="row-fluid" style="height: 100%">
+
+        <!-- SEARCH AND BUILDING TYPE LIST -->
+          <div  id="aboutcontainer" class="introcontainer col-xs-12 col-sm-7 col-md-6 col-lg-5">
+            
+              <div class="row">
+                <div class="col-xs-8">
+                  <a name="about"></a><h2 class="page-header" >New York City Energy <br>&amp; Water Performance Map</h2>
+                </div>
+                <div class="col-xs-4">
+                  <div class="row">
+                    <div class="col-xs-12" style="padding-top:50px;">
+                        <a href="http://cusp.nyu.edu/"><img class="center-block" src="img/CUSP_long_color.png", style="height:32px; "></a>
+                    </div>
+                  </div>
+<!--                   <div class="row">
+                    <div class="col-xs-12" style="padding-top:15px;">
+                        <a href="http://engineering.nyu.edu/"><img class="center-block" src="img/tandon_long_color.png", style="height:24px;"></a>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+
+             <div>
+              Brought to you by the <a href="http://www1.nyc.gov/site/sustainability/index.page">Mayor's Office of Sustainability</a> and <a href="http://cusp.nyu.edu/">New York University's Center for Urban Science and Progress</a>.</div>
+            <div>
+              &nbsp;</div>
+            <div>
+              The NYC Energy &amp; Water Performance Map helps us understand the energy and water efficiency of more than 26,000 buildings across New York's five boroughs. &nbsp;</div>
+            <div>
+              &nbsp;</div>
+            <div>
+              NYC's Greener Greater Buildings Plan included one of the first benchmarking ordinances passed in the US: Local Law 84 of 2009. Local Law 84 has since become a model for cities grappling with the challenge of reducing greenhouse gas emissions in buildings. This law requires private buildings over 50,000 ft<sup>2</sup> and public sector buildings over 10,000 ft<sup>2</sup> to report their energy and water consumption each year for public disclosure. The NYC Energy &amp; Water Performance Map will help users analyze annual energy and water consumption data for calendar years 2013 and 2014 for all buildings covered by Local Law 84.</div>
+            <div>
+              &nbsp;</div>
+            <div>
+              With better analytical tools, the City aims to help property owners, buyers, and tenants to factor energy, water, and greenhouse gas emissions into their real estate decision making processes.</div>
+            <div>
+              &nbsp;</div>
+
+            <p><a href="./mobile.html">Click here</a> to visit the mobile version of this site.</p>
+
+            <div class="row" style="text-align:center">
+              <button type="button" id="buttonVis" class="btn-lg btn-primary" style="position:relative;" onClick="showVis()">Go to Visualization</button>
+            </div>
+    
+            <br><br>
+
+            <div><b>Additional Info</b></div>
+
+            <div style="border-top:1px solid #CCC; padding-top: 20px;">
+              Learn more about NYC's Local Law 84 energy and water benchmarking program <a href="http://www.nyc.gov/html/gbee/html/plan/ll84.shtml">here</a>.</div>
+              <br>
+
+            <div>The visualization tool was created by <a href="http://cusp.nyu.edu/people/dr-constantine-e-kontokosta-pe/">Dr. Constantine E. Kontokosta</a>, PE, Assistant Professor of Urban Informatics at NYU CUSP and the Tandon School of Engineering along with Christopher Tull, Renate Pinggera, and David Marulli, all graduates of the NYU CUSP Master of Science in Applied Urban Science and Informatics program.</div>
+
+          </div>
+
+          <!-- <div  id="researchcontainer" class="introcontainer col-xs-12 col-sm-7 col-md-6 col-lg-5 hidden">
+
+              <h3 style="padding-top:20px">Research and Publications</h3>
+              <p>Professor Kontokosta leads an inter-displinary team of researchers at NYU CUSP and the Tandon School of Engineering to study the dynamics of urban energy use and the potential for data-driven approaches to accelerate the adoption of energy efficiency in the built environment.</p> 
+              <p>For those interested in learning more about building energy efficiency and urban sustainability, below are a list of selected publications that form part of a larger research agenda that investigates the intersection of benchmarking data and a wide range of datasets across land use, real estate, and socio-economic conditions across cities.&nbsp;</p>
+              <div>
+                &nbsp;</div>
+              <div>
+                <a href="http://www.sciencedirect.com/science/article/pii/S2210670715000633"><em>
+                  Modeling the determinants of large-scale building water use: Implications for data-driven urban sustainability policy
+                </em></a></div>
+              <div>
+                <em>Sustainable Cities &amp; Society</em></div>
+              <div>
+                <strong>Constantine E. Kontokosta and Rishee K. Jain</strong></div>
+              <div>
+                &nbsp;</div>
+              <div> <a href="http://link.springer.com/article/10.1007/s11146-014-9481-0#page-1"><em>
+                A Market-Specific Methodology for a Commercial Building Energy Performance Index
+                </em></a></div>
+              <div>
+                <em>Journal of Real Estate Finance and Economics</em></div>
+              <div>
+                <strong>Constantine E. Kontokosta</strong></div>
+              <div>
+                &nbsp;</div>
+              <div> <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6879574"><em>
+                  Big Data + Big Cities: Graph Signals of Urban Air Pollution
+                </em></a></div>
+              <div>
+                <em>Signal Processing Magazine</em></div>
+              <div>
+                <strong>Rishee K. Jain, Jose Moura, and Constantine E. Kontokosta</strong></div>
+              <div>
+                &nbsp;</div>
+              <div><a href="http://onlinelibrary.wiley.com/doi/10.1111/nyas.12163/abstract"><em>
+                Energy disclosure, market behavior, and the building data ecosystem
+                </em></a></div>
+              <div>
+                <em>Annals of the New York Academy of Sciences</em></div>
+              <div>
+                <strong>Constantine E. Kontokosta</strong></div>
+              <div>
+                &nbsp;</div>
+              <div><a href="http://aresjournals.org/doi/abs/10.5555/jsre.3.1.hx085737n8325333"><em>
+                  Greening the Regulatory Landscape: The Spatial and Temporal Diffusion of Green Building Policies in U.S. Cities
+                </em></a></div>
+              <div>
+                <em>Journal of Sustainable Real Estate</em></div>
+              <div>
+                <strong>Constantine E. Kontokosta</strong></div>
+              <div>
+                &nbsp;</div>
+              <div><em>
+                Housing Affordability and Energy Cost Burdens: Are Poor Households Disproportionately Affected by&nbsp; Energy Inefficiency in Multi-Family Buildings?
+              </em></div>
+              <div>
+                <strong>Constantine E. Kontokosta&nbsp;</strong></div>
+              <div>
+                &nbsp;</div>
+              <div>
+                <em>The Building Energy Visualization Tool &ndash; An Interactive Data Analysis Platform</em></div>
+              <div>
+                <em>Bloomberg Data for Good Exchange 2015</em></div>
+              <div>
+                <strong>Constantine E. Kontokosta and Christopher Tull</strong></div>
+                <br>
+
+              <div class="row" style="text-align:center">
+                <button type="button" id="buttonVis" class="btn-lg btn-primary" style="position:relative;" onClick="showVis()">Go to Visualization</button>
+              </div>
+
+          </div> -->
+
+
+          <div  id="datasourcescontainer" class="introcontainer col-xs-12 col-sm-7 col-md-6 col-lg-5 hidden">
+
+            <h3>Data Sources</h3>
+            <p>Energy, water, and greenhouse gas data are from the NYC Local Law 84 disclosure data. This is provided by the Mayor's office of Sustainability for the following years:</p>
+            <ul>
+              <li>2014 (Reported in 2015)</li>
+              <li>2013 (Reported in 2014, available for download <a href="https://data.cityofnewyork.us/Environment/Energy-and-Water-Data-Disclosure-for-Local-Law-84-/rgfe-8y2z">here</a>)</li>
+            </ul>
+
+            <p>Polygon shapes and property characteristics are from the <a href="http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml">NYC Primary Land Use Tax-lot Output (PLUTO)</a> data set. This site uses version 14v2, available for download <a href="http://www.nyc.gov/html/dcp/html/bytes/archive_pluto_mappluto.shtml">here</a>.</p>
+            
+            <h3>Definitions</h3>
+            <p>Full data definitions are available for <a href="http://www.nyc.gov/html/gbee/downloads/pdf/150428_NYC%20LL84%20Data%20Disclosure%20Definitions.pdf">Local Law 84</a> and <a href="http://www.nyc.gov/html/dcp/pdf/bytes/pluto_datadictionary.pdf">PLUTO</a>. The most relevant are defined below.</p>
+            <ul class="data-def">
+              <li><strong>Weather Normalized Source EUI</strong>: The Weather Normalized Source Energy Use Intensity (EUI) is the source EUI in kBtus per gross square foot (kBtu/ft<sup>2</sup> ) of the property, normalized for weather. Weather normalization facilitates comparison between different parts of the country and corrects for year-to-year differences in weather. Weather Normalized Source EUI values are the result of self-reported entries.</li>
+              <li><strong>Water Use Intensity (WUI)</strong>: The annual consumption of water in gallons per gross square foot (gal/ft2 ) of the property.</li>
+              <li><strong>GHG Intensity</strong>: The total direct and indirect greenhouse gases emitted due to energy used by the property per gross square foot of the property, reported in kilograms of carbon dioxide equivalent per square foot (kgCO2e/ft<sup>2</sup>). The carbon coefficient is based on New York City's EPA Emissions &amp; Generation Resource Integrated Database (eGRID) sub-region.</li>
+              <li><strong>ENERGY STAR Score</strong>: A 1-to-100 percentile ranking for specified building types, as calculated by Portfolio Manager, with 100 being the best score and 50 the median. It compares the energy performance of a building against the national Commercial Buildings Energy Consumption Survey (CBECS) database, and independent industry surveys for that building type. This rating is normalized for weather and building attributes in order to obtain a measure of efficiency.&nbsp;</li>
+              <li><strong>Property Type</strong>: The self-reported property type, as selected from the property type options available in Portfolio Manager. This is not necessarily consistent with the property type designation in Department of Finance records.</li>
+              <li><strong>Gross Floor Area</strong>: Gross square footage of the property, per Department of Finance records.</li>
+              <li><strong>Number of Buildings</strong>: The total number of buildings located on the tax lot per Department of Finance records.</li>
+              <li><strong>Number of Floors</strong>: In the primary building on the tax lot, the number of full and partial stories starting from the ground floor.</li>
+            </ul>
+
+            <div class="row" style="text-align:center">
+              <button type="button" id="buttonVis" class="btn-lg btn-primary" style="position:relative;" onClick="showVis()">Go to Visualization</button>
+            </div>
+
+          </div>
+
+          <div  id="filtercontainer" class="col-xs-12 col-sm-7 col-md-6 col-lg-5 hidden">
+            
+                <div class="row" id="topic">
+                  <button type="button" id="buttonEUI" class="btn-sm btn-primary active" onClick="changeTopic('EUI')">Energy Use Intensity</button>
+                  <button type="button" id="buttonWUI" class="btn-sm btn-primary" onClick="changeTopic('WUI')">Water Use Intensity</button>
+                  <button type="button" id="buttonGHG" class="btn-sm btn-primary" onClick="changeTopic('GHG')">Greenhouse Gas Intensity</button>
+                  <button type="button" id="buttonfloorarea" class="btn-sm btn-primary" onClick="changeTopic('floorarea')">Building Floor Area</button>
+                </div>
+
+                <div class="row" id="yearSizeFilter">
+                  <div class="col-xs-12">
+                    <form id="yearSizeFilterBar" action="" method="post" class="form-inline row">
+                      
+                      <!-- <div class="row"> -->
+                        <div class="col-xs-10">
+                          <div class="form-group">
+   
+                            <!-- Age row -->
+                            <div class="row">
+                              <div class="col-xs-3">Year built:</div>
+                              <div class="col-xs-4">
+                                <input id="yearLow" type="text" name="yearLow" align="right" class="form-control input-sm" placeholder="1900">
+                              </div>
+                              <div class="col-xs-1"> to </div>
+                              <div class="col-xs-4">
+                                <input id="yearHigh" type="text" name="yearHigh" class="form-control input-sm" placeholder="2015">
+                              </div>
+                            </div>
+                            <!-- Size row -->
+                            <div class="row">
+                              <div class="col-xs-3">Floor area:</div>
+                              <div class="col-xs-4">
+                                <input id="sizeLow" type="text" name="sizeLow" class="form-control input-sm" placeholder="50000">
+                              </div>
+                              <div class="col-xs-1"> to </div>
+                              <div class="col-xs-4">
+                                <input id="sizeHigh" type="text" name="sizeHigh" class="form-control input-sm" placeholder="500000">
+                              </div>
+                            </div> 
+
+                          </div>
+                        </div>
+                        <div class="col-xs-2">
+                          <input class="btn btn-default btn-sm" type="submit" value="Filter">
+                          <input class="btn btn-default btn-sm" type="button" value="Clear" onclick="clearAgeSizeForm()">
+                        </div>
+
+                      <!-- </div> -->
+                      
+                    </form>
+                  </div>
+                </div>
+                
+                <div class="row" id="search">
+                  <div class="col-xs-8">
+                    <form id="searchBar" action="" method="post" class="form-inline">
+                      <div class="form-group">
+                        <input id="addressText" type="text" name="addressText" class="form-control" placeholder="Address, e.g. 300 Cadman Plaza West, Brooklyn">
+                      </div>
+                        <input class="btn btn-default" type="submit" value="Search">
+                    </form>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <p>Reporting Year:</p>
+                      </div>
+                      <div class="col-xs-6">
+                        <form id="yearSelector" action="" method="post"  class="form-inline headline">
+                          <select id="years" name='years'>
+                            <!-- <option value="2016">2016</option> -->
+                            <option value="2015" selected="selected">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                          </select>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row" id="filter">
+                  <!-- <h4>Energy Use Intensity</h4> -->
+                  <!-- D3 building type list -->
+                  <div class="col-xs-7" id="typelist">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <span class="headline">Property type</span>
+                        <span class="headline" style="float:right" >No. of properties</span>
+                      </div>        
+                    </div>
+                    
+                  </div>
+                  <div class="col-xs-5" id="whiskers">
+
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <span class="headline"  title="Source Energy Use Intensity: Avg and 1 and 2 Std. Dev.">
+                          <script>document.write(labelWeatherNormEUIShort);</script>
+                        </span>
+                      </div>        
+                    </div>
+
+                  </div>
+                </div><!-- ./filter -->
+                
+                <div id="whiskers-legend">Orange line: currently selected building</div>
+
+                <div id="intro">
+                  <h4>Explore New York's Energy and Water Consumption</h4>
+                  <p>This visualization shows energy and water use, greenhouse gas emissions and building sizes of New York City buildings that are required to report their energy and water consumption due to Local Law 84.</p>
+                </div>
+
+                <!-- SCATTERPLOT -->
+                <div id="scatterplotcontainer">
+                  <!-- <h4 style="top:20px;padding-left:5px">Energy Use Intensity and Greenhouse Gas Emissions</h4>   -->
+                  <!-- <h4 style="top:20px;padding-left:5px">Explore Outliers</h4>   -->
+                  <!-- Scatterplot tooltip -->
+                  <div id="tooltip" class="hidden">
+                    <div><h6 id="scatterTooltip-address"></h6> 
+                    <p class='subline' id="scatterTooltip-propertyType"></p></div>
+                    <h6 id="scatterTooltip-buildingEUI"></h6>
+                  </div>
+
+                  <div id="scatterplot"></div>
+                </div><!-- ./scatterplotcontainer -->
+
+
+          </div><!-- ./filtercontainer -->
+
+          <!-- INFO PER BUILDING -->
+          <div id="perbuildinginfo" class="perbuildinginfo">
+            <span class="close">x</span>
+            <div class="info"></div>
+            <div id="histogram"></div>
+            <div class="row" style="text-align:center">
+              <button type="button" id="buttonExpand" class="btn-sm btn-primary" style="position:relative;" onclick="expandBuildingView()">Details</button>
+            </div>
+            <br>
+              <div id="naDisclaimer" class="smallnumber grey subline">*This property is present in the data but has no value for this metric.</div>
+          </div>
+
+          <div id="expandedbuildinginfo" class="expandedbuildinginfo col-xs-12 col-sm-5 col-md-6 col-lg-7 hidden">
+            <span class="close">x</span>
+            <div class="row">
+              <div id="expandedinfo" class="col-md-12" style="border-bottom: 1px solid #ccc;" >
+              </div>
+            </div>
+            <div class="row" style="padding-top:20px;">
+              <div class="col-md-6 expandedHistogram">
+                <div id="EUItext">
+                </div>
+                <div id="EUIhistogram">
+                </div>
+              </div>
+              <div class="col-md-6 expandedHistogram">
+                <div id="WUItext">
+                </div>
+                <div id="WUIhistogram">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 expandedHistogram">
+                <div id="GHGtext">
+                </div>
+                <div id="GHGhistogram">
+                </div>
+              </div>
+              <div class="col-md-6 expandedHistogram">
+                <div id="floorareatext">
+                </div>
+                <div id="floorareahistogram">
+                </div>
+              </div>
+            </div>
+            <div class="row" style="text-align:center">
+              <button type="button" id="buttonExpand" class="btn-sm btn-primary" style="position:relative;" onclick="reduceBuildingView()">Back to Map</button>
+            </div>
+          </div>
+          
+
+          <!-- MAP -->
+          <div id="mapcontainer" class="col-xs-12 col-sm-5 col-md-6 col-lg-7">
+            <div id="map"></div>
+            <div class='cartodb-legend choropleth'> 
+              <div class="legend-title">Weather Normalized Energy Use Intensity (kBTU/ft²)</div>
+              <ul>
+                <li class="min">< 110</li>
+                <li class="max">595+</li>
+                <li class="graph count_441">
+                  <div class="colors">
+                    <div class="quartile" style="background-color:#ffffcc"></div>
+                    <div class="quartile" style="background-color:#c7e9b4"></div>
+                    <div class="quartile" style="background-color:#7fcdbb"></div>
+                    <div class="quartile" style="background-color:#41b6c4"></div>
+                    <div class="quartile" style="background-color:#1d91c0"></div>
+                    <div class="quartile" style="background-color:#225ea8"></div>
+                    <div class="quartile" style="background-color:#0c2c84"></div>
+                  </div> 
+                </li>
+              </ul>
+            </div>
+
+
+        </div><!-- ./mapcontainer -->
+    </div>
+
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="5" style="background:#000;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:bold;font-size:12px; margin-right:15px;">
+      <tr>
+        <td class="header-footer-text" style="width:653px;padding-left:16px;color:#bbb;">&copy; C.E. Kontokosta &amp; C. Tull 2015</td>
+        <td class="header-footer-text" style="width:90px;text-align:center;border-right:1px solid #777;"><a href="http://www1.nyc.gov/home/contact-us.page" style="color:#fff;text-decoration:none;">Contact Us</a></td>
+        <td class="header-footer-text" style="width:100px;text-align:center;border-right:1px solid #777;"><a href="http://www1.nyc.gov/home/privacy-policy.page" style="color:#fff;text-decoration:none;">Privacy Policy</a></td>
+        <td class="header-footer-text" style="width:100px;text-align:center;"><a href="./terms-of-use.html" style="color:#fff;text-decoration:none;">Terms of Use</a></td>
+      </tr>
+    </table>
+
+  </div>
+
+      <script>
+        if (screen.width <= minScreenWidth) {
+          // var warningStr = "This site may not display properly in your browser. Would you like to visit the mobile version of this site?"
+          // if (confirm(warningStr) == true) {
+          document.location = "./mobile.html";
+          // }
+        }
+
+        window.onload = main();
+          
+
+      </script>
+
+      <!-- START of nycgov_footer.inc-->
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

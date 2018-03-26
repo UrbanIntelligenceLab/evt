@@ -10,6 +10,6 @@ With better analytical tools, the City aims to help property owners, buyers, and
 
 Additional Info
 
-Learn more about NYC's Local Law 84 energy and water benchmarking program here.
+Learn more about NYC's Local Law 84 energy and water benchmarking program <a href="http://www.nyc.gov/html/gbee/html/plan/ll84.shtml" target="_blank">here</a>.
 <hr>
 The visualization tool was created by <a href="http://cusp.nyu.edu/people/dr-constantine-e-kontokosta-pe/" target="_blank">Dr. Constantine E. Kontokosta</a>, PE, Assistant Professor of Urban Informatics at NYU CUSP and the Tandon School of Engineering along with Christopher Tull, Renate Pinggera, and David Marulli, all graduates of the NYU CUSP Master of Science in Applied Urban Science and Informatics program.
